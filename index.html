@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>HazelHollow · cozy budgeting for students</title>
+  <meta name="description" content="A free, cozy budgeting app for students. Tell HazelHollow what money you have and when more comes in, and get one calm number: how much you can spend this week.">
+  <meta name="theme-color" content="#f7f0e3">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="wrap wide">
+    <!-- ===== HERO: what HazelHollow is ===== -->
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Budgeting for students</span>
+        <h1>Make your stash last the whole semester.</h1>
+        <p class="lead">HazelHollow turns the money you have into one calm number:
+          <strong>how much you can spend this week.</strong></p>
+        <p class="actions"><a class="button" href="app.html">Start, it's free</a>
+          <a class="button secondary" href="about.html">Our story</a></p>
+        <p class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l7 2.5v5.5c0 4.3-3 7.6-7 9-4-1.4-7-4.7-7-9V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>
+          No account, no bank login. Your numbers stay on your own device.</p>
+      </div>
+      <div class="hero-art">
+        <img class="main" src="images/squirrel.svg" alt="HazelHollow's squirrel hugging a hazelnut">
+      </div>
+    </section>
+
+    <!-- ===== THE STORY (2 sentences) ===== -->
+    <section class="story">
+      <span class="eyebrow">The idea</span>
+      <h2>Why a squirrel?</h2>
+      <p>Every fall, squirrels gather hazelnuts and tuck them into a cozy tree hollow so they're okay all winter.
+        Students live the same way: money comes in big chunks (OSAP, a summer job, help from family) and has to
+        last until the next harvest.</p>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section>
+      <p class="center" style="margin:0"><span class="eyebrow">How it works</span></p>
+      <h2 class="center">Three steps, one calm number</h2>
+      <ol class="steps">
+        <li><span class="num">1</span>
+          <h3>Fill your hollow</h3>
+          <p>Tell HazelHollow what money you have now, when your next money comes in, and your fixed bills. It takes under a minute.</p></li>
+        <li><span class="num">2</span>
+          <h3>Get one number</h3>
+          <p>See how much you can spend this week so your stash lasts until the next harvest. Tap it to see the math.</p></li>
+        <li><span class="num">3</span>
+          <h3>Log in 5 seconds</h3>
+          <p>Tap Coffee, Groceries or Takeout, type the amount, done. Your weekly number updates right away.</p></li>
+      </ol>
+      <p class="center"><a class="button" href="app.html">Start budgeting</a></p>
+    </section>
+
+    <!-- ===== FOUNDING TEAM BANNER ===== -->
+    <section class="banner">
+      <img src="images/hazelnut.svg" alt="">
+      <div>
+        <h2>Join the Founding Team</h2>
+        <p>Help shape HazelHollow as a Founding Tester or Campus Ambassador. It's a small volunteer role on a
+          student-built project: 30 minutes a week at most, with free Pro while you're active.
+          <span id="team-count"></span></p>
+      </div>
+      <a class="button" href="join.html">See the roles</a>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    // Show the REAL number of team members from data/team.json (never made up).
+    loadJSON("data/team.json").then(function (data) {
+      const members = data.members.filter(function (m) { return m.role !== "Founder"; });
+      document.getElementById("team-count").textContent = members.length > 0
+        ? members.length + (members.length === 1 ? " student has" : " students have") + " joined so far."
+        : "Be one of the very first members.";
+    }).catch(function () {});
+  </script>
+</body>
+</html>

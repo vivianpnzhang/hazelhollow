@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Founding Team · HazelHollow</title>
+  <meta name="theme-color" content="#f7f0e3">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="wrap prose">
+    <h1>The Founding Team</h1>
+    <p>The students helping build HazelHollow. Everyone here said yes to being listed.
+      <a href="join.html">Want to join?</a></p>
+    <div class="team-grid" id="team-grid"><p class="muted">Loading…</p></div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="js/config.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    loadJSON("data/team.json").then(function (data) {
+      const grid = document.getElementById("team-grid");
+      if (!data.members.length) { grid.innerHTML = '<p class="muted">No members yet.</p>'; return; }
+      grid.innerHTML = data.members.map(function (m) {
+        const link = m.linkedin ? '<a href="' + esc(m.linkedin) + '" target="_blank" rel="noopener">LinkedIn</a>' : "";
+        return '<div class="team-card"><img src="images/hazelnut.svg" alt="">' +
+          '<h3>' + esc(m.name) + '</h3><p><span class="pill">' + esc(m.role) + '</span></p>' +
+          (m.school ? '<p class="muted">' + esc(m.school) + '</p>' : "") + link + '</div>';
+      }).join("");
+    }).catch(function () {
+      document.getElementById("team-grid").innerHTML = '<p class="muted">The team list could not load right now.</p>';
+    });
+  </script>
+</body>
+</html>

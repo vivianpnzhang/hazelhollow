@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Join the Founding Team · HazelHollow</title>
+  <meta name="theme-color" content="#f7f0e3">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="wrap prose">
+    <span class="eyebrow">Volunteer roles</span>
+    <h1>Join the Founding Team</h1>
+    <p class="lead">HazelHollow is a free budgeting app built by a student. We're looking for a small group of
+      students to test it, share it and help make it better.</p>
+    <p class="notice">This is an honest, <strong>volunteer</strong> role on a student-built project. It's unpaid,
+      it's not a job or an internship, and it takes <strong>30 minutes a week at most</strong>. You can stop any time.</p>
+
+    <h2>The two roles</h2>
+    <div class="table-scroll"><table>
+      <tr><th>Role</th><th>What you do</th><th>Time</th><th>LinkedIn title</th></tr>
+      <tr><td><strong>Founding Tester</strong></td><td>Use the app, do 1–2 small weekly "missions", and fill out a
+        5-question feedback form.</td><td>15–30 min/week</td><td>Founding Tester, HazelHollow</td></tr>
+      <tr><td><strong>Campus Ambassador</strong></td><td>Share 1 post a month, invite friends with your personal
+        link, and pass on feedback you hear.</td><td>10–20 min/week</td><td>Campus Ambassador, HazelHollow</td></tr>
+    </table></div>
+
+    <h2>What you get</h2>
+    <ul>
+      <li><strong>Free HazelHollow Pro</strong> while you're active.</li>
+      <li>A <strong>Founding Team badge</strong> in the app forever: a tiny golden hazelnut.</li>
+      <li>Your name on the <a href="team.html">Founding Team wall</a>, if you'd like it there.</li>
+      <li>A downloadable Founding Team card.</li>
+      <li>A <strong>LinkedIn recommendation</strong> from the founder after a full term of real participation.</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><span class="num">1</span><h3>Apply</h3><p>Fill out a short form. It takes about 2 minutes.</p></li>
+      <li><span class="num">2</span><h3>Get your code</h3><p>You'll get a personal team code. Type it into the app to open Pro and the Tester Hub.</p></li>
+      <li><span class="num">3</span><h3>Do weekly missions</h3><p>Small tasks each week, like "try the roommate split", plus quick feedback.</p></li>
+    </ol>
+
+    <h2>Two promises we ask you to keep</h2>
+    <ul>
+      <li><strong>Always say you're connected.</strong> You get free Pro, so when you post about HazelHollow,
+        keep the disclosure line (like "#FoundingTester, I get free Pro for testing HazelHollow"). Canada's
+        Competition Bureau expects this, and it's just honest.</li>
+      <li><strong>Only share your honest opinion.</strong> Never post fake reviews or say things you don't believe.</li>
+    </ul>
+
+    <p class="actions" id="apply-area"></p>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="js/config.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    const area = document.getElementById("apply-area");
+    const link = applyFormLink();
+    area.innerHTML = link
+      ? '<a class="button" href="' + esc(link) + '" target="_blank" rel="noopener">Apply to the Founding Team</a>'
+      : '<button disabled>Applications open soon</button>';
+  </script>
+</body>
+</html>

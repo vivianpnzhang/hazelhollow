@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Weekly number tests · HazelHollow</title>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style> .pass { color: var(--moss); font-weight: 700; } .fail { color: var(--clay); font-weight: 700; } </style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Weekly number tests</h1>
+  <p>Each example below was worked out by hand. This page runs it through the real math in
+    <code>js/budget.js</code> and checks the answer. Open this page after changing the math.</p>
+  <p id="summary"></p>
+  <div class="table-scroll"><table id="results"><tr><th>Example</th><th>Expected</th><th>Got</th><th></th></tr></table></div>
+</main>
+<script src="js/budget.js"></script>
+<script>
+  // A starting point used by most examples: the worked example from budget.js
+  function base(extra) {
+    return Object.assign({
+      setup: { anchor: "2026-11-18" },
+      balance: { amount: 3000, date: "2026-11-18", ts: 1000 },
+      nextMoney: { date: "2027-01-05", amount: 4000 },
+      bills: [
+        { name: "Rent", amount: 800, freq: "monthly", day: 1 },
+        { name: "Phone", amount: 50, freq: "monthly", day: 15 },
+      ],
+      logs: [], goals: [],
+    }, extra || {});
+  }
+  const spend = (amount, date, ts) => ({ kind: "spend", amount, date, ts: ts || 2000, category: "Other" });
+  const income = (amount, date) => ({ kind: "income", amount, date, ts: 2000 });
+
+  const tests = [
+    ["Worked example: ($3000 − $1650 bills) ÷ 6.86 weeks", base(), "2026-11-18", "allowance", 196.88],
+    ["…48 days until next money", base(), "2026-11-18", "daysLeft", 48],
+    ["…bills before next money = $1650", base(), "2026-11-18", "billsAhead.total", 1650],
+    ["Log $20 coffee → $176.88 left this week", base({ logs: [spend(20, "2026-11-18")] }), "2026-11-18", "left", 176.88],
+    ["Spent $300 in week 1 → week 2 shrinks gently", base({ logs: [spend(300, "2026-11-18")] }), "2026-11-25", "allowance", 179.27],
+    ["$350 in the jar lowers the number", base({ goals: [{ name: "Trip", target: 500, saved: 350 }] }), "2026-11-18", "allowance", 145.83],
+    ["Extra $100 income this week", base({ logs: [income(100, "2026-11-18")] }), "2026-11-18", "allowance", 211.46],
+    ["Next money in 3 days → short week gets everything", base({ bills: [], balance: { amount: 500, date: "2026-11-18", ts: 1 }, nextMoney: { date: "2026-11-21" } }), "2026-11-18", "allowance", 500],
+    ["Bills bigger than money → $0, never negative", base({ balance: { amount: 500, date: "2026-11-18", ts: 1 } }), "2026-11-18", "allowance", 0],
+    ["Bill due on the balance date counts as already paid", base({ setup: { anchor: "2026-12-01" }, balance: { amount: 1000, date: "2026-12-01", ts: 1 }, nextMoney: { date: "2026-12-29" }, bills: [{ name: "Rent", amount: 800, freq: "monthly", day: 1 }] }), "2026-12-01", "allowance", 250],
+    ["Monthly bill on the 31st lands on Feb 28", null, null, "feb31", 1],
+    ["Balance updated mid-week: old logs ignored, 4-day week", base({ balance: { amount: 2000, date: "2026-11-21", ts: 5000 }, logs: [spend(99, "2026-11-19", 3000)] }), "2026-11-21", "allowance", 31.11],
+    ["Weekly bill: $40 every week from Nov 20 (7 times before Jan 5)", base({ bills: [{ name: "Groceries", amount: 40, freq: "weekly", date: "2026-11-20" }] }), "2026-11-18", "billsAhead.total", 280],
+    ["One-time bill inside the window", base({ bills: [{ name: "Books", amount: 750, freq: "once", date: "2026-12-10" }] }), "2026-11-18", "billsAhead.total", 750],
+    ["One-time bill after next money is ignored", base({ bills: [{ name: "Books", amount: 750, freq: "once", date: "2027-01-10" }] }), "2026-11-18", "billsAhead.total", 0],
+    ["Rent paid in week 1 is taken out of money now", base(), "2026-12-02", "moneyNow", 2200],
+    ["Next money date reached → asks to update", base(), "2027-01-05", "overdue", true],
+  ];
+
+  function get(obj, path) { return path.split(".").reduce((o, k) => o[k], obj); }
+  let passed = 0;
+  const table = document.getElementById("results");
+  tests.forEach(function ([name, state, today, field, expected]) {
+    let got;
+    try {
+      if (field === "feb31") {
+        got = Budget.billsTotal([{ name: "X", amount: 1, freq: "monthly", day: 31 }], Budget.D("2027-02-01"), Budget.D("2027-03-01")).items
+          .filter(i => i.date === "2027-02-28").length;
+      } else {
+        got = get(Budget.compute(state, today), field);
+      }
+    } catch (e) { got = "error: " + e.message; }
+    const ok = got === expected;
+    if (ok) passed++;
+    table.insertAdjacentHTML("beforeend", `<tr><td>${name}</td><td>${expected}</td><td>${got}</td><td class="${ok ? "pass" : "fail"}">${ok ? "✓ pass" : "✗ FAIL"}</td></tr>`);
+  });
+  document.getElementById("summary").innerHTML = `<strong class="${passed === tests.length ? "pass" : "fail"}">${passed} of ${tests.length} passed</strong>`;
+</script>
+</body>
+</html>
