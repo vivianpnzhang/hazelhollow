@@ -1,0 +1,6 @@
+{
+  "_how_to_edit": "One { } block per team member. Make each code hard to guess (e.g. HH-ANNA-7K2P). Delete someone's block to switch off their Pro. ref is the tag in their invite link (lowercase, no spaces). start is YYYY-MM-DD. The FOUNDER code is for you to test with; change it to something only you know.",
+  "codes": [
+    { "code": "HH-FOUNDER-CHANGE-ME", "name": "Vivian", "role": "Founder", "ref": "vivian", "start": "2026-11-18" }
+  ]
+}

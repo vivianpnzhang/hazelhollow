@@ -1,0 +1,6 @@
+{
+  "_how_to_edit": "Add one { } block per person who said YES to being listed. role is 'Founding Tester' or 'Campus Ambassador'. linkedin and school are optional (use \"\"). Keep the commas between blocks.",
+  "members": [
+    { "name": "Vivian Zhang", "role": "Founder", "school": "Wilfrid Laurier University", "linkedin": "" }
+  ]
+}

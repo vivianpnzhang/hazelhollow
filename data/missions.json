@@ -1,0 +1,8 @@
+{
+  "_how_to_edit": "Each week, change 'week' to that week's Monday (YYYY-MM-DD) and write 1-2 missions. Give every mission a NEW id that's never been used before (ticks are saved by id).",
+  "week": "2026-11-16",
+  "missions": [
+    { "id": "2026-11-16-a", "text": "Set up HazelHollow and log 3 purchases this week. Was anything confusing?" },
+    { "id": "2026-11-16-b", "text": "Tap your weekly number to see the math. Does the explanation make sense?" }
+  ]
+}

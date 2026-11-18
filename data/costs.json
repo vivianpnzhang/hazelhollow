@@ -1,0 +1,32 @@
+{
+  "_how_to_edit": "Only add numbers you found on an OFFICIAL source (like a university's published cost estimate). Always include source, url and checked date. Never guess.",
+  "places": [
+    {
+      "id": "uwaterloo",
+      "name": "University of Waterloo (Waterloo, ON)",
+      "items": [
+        { "kind": "books", "label": "Textbooks and supplies", "amount": 1500, "per": "two terms (8 months)", "perTerm": 750,
+          "source": "University of Waterloo, First-year tuition fees (estimates for students starting Sept 2026)",
+          "url": "https://uwaterloo.ca/future-students/financing/tuition", "checked": "2026-11-18" },
+        { "kind": "transit", "label": "Transit pass", "note": "Waterloo says your transit pass is included in your incidental fees, which are part of tuition. If so, you don't need a separate transit bill.",
+          "source": "University of Waterloo, First-year tuition fees", "url": "https://uwaterloo.ca/future-students/financing/tuition", "checked": "2026-11-18" },
+        { "kind": "rent", "label": "Rent", "note": "Waterloo doesn't publish an off-campus rent estimate, so please enter your own rent." }
+      ]
+    },
+    {
+      "id": "laurier",
+      "name": "Wilfrid Laurier University (Waterloo, ON)",
+      "items": [
+        { "kind": "books", "label": "Textbooks and supplies", "amount": 1500, "per": "two terms (first year, 2026/27)", "perTerm": 750,
+          "source": "Wilfrid Laurier University, Estimated Costs to Attend Laurier (2026/27)",
+          "url": "https://www.wlu.ca/future-students/undergraduate/tuition-finances/index.html", "checked": "2026-11-18" },
+        { "kind": "groceries", "label": "Groceries", "amount": 3300, "per": "two terms (first year, 2026/27, domestic)", "perMonth": 412.5,
+          "source": "Wilfrid Laurier University, Estimated Costs to Attend Laurier (2026/27)",
+          "url": "https://www.wlu.ca/future-students/undergraduate/tuition-finances/index.html", "checked": "2026-11-18" },
+        { "kind": "rent", "label": "Rent", "note": "Laurier publishes residence costs ($8,373 to $11,760 for two terms in Waterloo) but no off-campus rent estimate, so please enter your own rent.",
+          "source": "Wilfrid Laurier University, Estimated Costs to Attend Laurier (2026/27)",
+          "url": "https://www.wlu.ca/future-students/undergraduate/tuition-finances/index.html", "checked": "2026-11-18" }
+      ]
+    }
+  ]
+}
