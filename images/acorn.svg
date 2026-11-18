@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<!-- Acorn doodle. Original drawing for HazelHollow. -->
+
+<g stroke="#4a3427" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M19 30 C19 44 25 54 32 57 C39 54 45 44 45 30 Z" fill="#d98b52"/>
+  <path d="M24 36 C24 42 26 47 29 50" fill="none" stroke="#f0b885"/>
+  <path d="M13 31 C13 21 21 16 32 16 C43 16 51 21 51 31 C44 33 20 33 13 31 Z" fill="#8a5a3b"/>
+  <path d="M20 23 L25 30 M29 19 L35 30 M39 20 L44 28" fill="none" stroke="#c49a74" stroke-width="1.6"/>
+  <path d="M32 16 C32 12 34 9 37 8" fill="none"/>
+</g>
+</svg>

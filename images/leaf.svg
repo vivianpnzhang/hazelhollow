@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<!-- Autumn leaf doodle. Original drawing for HazelHollow. -->
+
+<g stroke="#4a3427" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M10 54 C10 30 28 12 54 10 C54 36 36 54 10 54 Z" fill="#d98b52"/>
+  <path d="M10 54 C24 40 36 28 48 16" fill="none"/>
+  <path d="M22 42 L21 31 M30 34 L31 23 M30 34 L41 35 M22 42 L33 44" fill="none" stroke-width="1.6"/>
+</g>
+</svg>

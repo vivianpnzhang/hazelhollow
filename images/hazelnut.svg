@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<!-- Hazelnut doodle. Original drawing for HazelHollow. -->
+
+<g stroke="#4a3427" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M32 22 C18 22 14 40 22 50 C27 56 37 56 42 50 C50 40 46 22 32 22 Z" fill="#a8683d"/>
+  <path d="M25 31 C23 37 24 42 27 46" fill="none" stroke="#d29a6c"/>
+  <path d="M15 27 C19 15 27 12 32 17 C37 12 45 15 49 27 C43 23 37 24 32 22 C27 24 21 23 15 27 Z" fill="#9fb08d"/>
+  <path d="M32 16 C32 11 34 8 37 6" fill="none"/>
+</g>
+</svg>

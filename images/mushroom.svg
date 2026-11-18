@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<!-- Little mushroom doodle. Original drawing for HazelHollow. -->
+
+<g stroke="#4a3427" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M26 33 C24 44 24 51 22 56 L42 56 C40 51 40 44 38 33 Z" fill="#f3e6d0"/>
+  <path d="M8 36 C8 18 20 10 32 10 C44 10 56 18 56 36 C44 31 20 31 8 36 Z" fill="#c47a62"/>
+  <g stroke="none" fill="#fbf3e6">
+    <circle cx="21" cy="23" r="3"/><circle cx="35" cy="17" r="2.5"/>
+    <circle cx="45" cy="26" r="3"/><circle cx="30" cy="27" r="2"/>
+  </g>
+  <path d="M14 56 L50 56 M18 56 L16 51 M46 56 L48 50" fill="none" stroke="#7d9471"/>
+</g>
+</svg>
